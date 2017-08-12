@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>json form fill</title>
+	<script>
+	var json={ 
+	  "id" : 12,
+	  "name": "Jack",
+	  "description": "Description"
+	};
+	for(key in json)
+	{
+	  if(json.hasOwnProperty(key))
+		$('input[name='+key+']').val(json[key]);
+	}
+	</script>
+  </head>
+  <body>
+	<form>
+	  <input type="text" name="id"/>
+	  <input type="text" name="name"/>
+	  <input type="text" name="description"/>
+	</form>
+  </body>
+</html>
