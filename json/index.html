@@ -1,24 +1,27 @@
 <html>
   <head>
+    <meta name="generator" content="HTML Tidy for HTML5 (experimental) for Windows https://github.com/w3c/tidy-html5/tree/c63cc39" />
     <title>json form fill</title>
-	<script>
-	var json={ 
-	  "id" : 12,
-	  "name": "Jack",
-	  "description": "Description"
-	};
-	for(key in json)
-	{
-	  if(json.hasOwnProperty(key))
-		$('input[name='+key+']').val(json[key]);
-	}
-	</script>
+    <script>
+function onloadjson() {
+var json={ 
+"id" : 12,
+"name": "Jack",
+"description": "Description"
+};
+for(key in json)
+{
+if(json.hasOwnProperty(key))
+$('input[name='+key+']').val(json[key]);
+}
+}
+
+</script>
   </head>
-  <body>
-	<form>
-	  <input type="text" name="id"/>
-	  <input type="text" name="name"/>
-	  <input type="text" name="description"/>
-	</form>
+  <body onload="onloadjson();">
+    <form>
+    <input type="text" name="id" /> 
+    <input type="text" name="name" /> 
+    <input type="text" name="description" /></form>
   </body>
 </html>
