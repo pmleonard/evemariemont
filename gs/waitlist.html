@@ -3,8 +3,13 @@
 		<title>Hideaway Swim Club Wait List Offer Membership</title>
 		<meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
 		<script type='text/javascript' src='//code.jquery.com/jquery-1.9.1.js'></script>
+		<style>
+			body {margin: 50px;}
+			h1 {color: blue;}
+			td {valign: top;}
+		</style>
 	</head>
-	<body style="cursor: auto;" topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+	<body style="cursor: auto;">
 		<script>
 			function getQueryVariable(variable)
 			{
@@ -24,7 +29,7 @@
 				if ("" != getQueryVariable('key')) {
 					var string = '<h1>Hideaway Swim Club - Membership Available</h1>'
 					+ '<h2>A membership has become available and you are next on our wait list.</h2>'
-					+ '<form>'
+					+ '<form action="mailto:membership@hideawayswimclub.com" method="post" enctype="text/plain">'
 					+ '<table width="93%" cellspacing="0" cellpadding="3"><tr>'
 					//+ '<td>Offer Date</td>'
 					+ '<td>Name</td>'
@@ -55,6 +60,11 @@
 								+ '<input type="radio" name="Interested" value="Later">Not for this season, but please keep me on the wait list for next season.<br>'
 								+ '<input type="radio" name="Interested" value="Maybe">Not at this time, but please keep me on the wait list.<br>'
 							+ '</td>'
+							+ '</tr>';
+							string += '<tr>'
+							+ '<td colspan="3">'
+							+ '<input type="submit" name="submit" value="Submit">'
+	`						+ '</td>'
 							+ '</tr>';
 						} else {
 							document.write("The link address is not active.  The offer has expired or the address is invalid.");
