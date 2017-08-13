@@ -9,7 +9,9 @@
 			function getQueryVariable(variable)
 			{
 				var query = window.location.search.substring(1);
-				if(query.length == 0) {return("")}
+				console.log("query="+query);
+				console.log("query.length="+query.length);
+				if(query.length == 0) { return(""); }
 				var vars = query.split("&");
 				for (var i=0;i<vars.length;i++) {
 					var pair = vars[i].split("=");
@@ -18,6 +20,7 @@
 				return("");
 			}
 			function displayForm(json) {
+				console.log("getQueryVariable="+getQueryVariable('key'));
 				if ("" != getQueryVariable('key')) {
 					var string = '<table width="93%" cellspacing="0" cellpadding="3"><tr>'
 					+ '<td>Offer Date</td>'
