@@ -14,35 +14,37 @@
 					var pair = vars[i].split("=");
 					if(pair[0] == variable){return pair[1];}
 				}
-				return(false);
+				return("");
 			}
 			function displayForm(json) {
-				var string = '<table width="93%" cellspacing="0" cellpadding="3"><tr>'
-				+ '<td>Offer Date</td>'
-				+ '<td>Prospect Name</td>'
-				+ '<td>Email</td>'
-				+ '<td>Expires</td>'
-				+ '<td>Key</td>'
-				+ '</tr>';
-				var len = json.feed.entry.length;
-				for (var i = 0; i < len; i++) {
-					var offer = json.feed.entry[i].gsx$offer.$t;
-					var prospect = json.feed.entry[i].gsx$prospect.$t;
-					var email = json.feed.entry[i].gsx$email.$t;
-					var expires = json.feed.entry[i].gsx$expires.$t;
-					var key = json.feed.entry[i].gsx$key.$t;
-					if (key == getQueryVariable('key')) {
-						string += '<tr>'
-						+ '<td>' + offer + '</td>'
-						+ '<td>' + prospect + '</td>'
-						+ '<td>' + email + '</td>'
-						+ '<td>' + expires + '</td>'
-						+ '<td>' + key + '</td>'
-						+ '</tr>';
+				if ("" != getQueryVariable('key')) {
+					var string = '<table width="93%" cellspacing="0" cellpadding="3"><tr>'
+					+ '<td>Offer Date</td>'
+					+ '<td>Prospect Name</td>'
+					+ '<td>Email</td>'
+					+ '<td>Expires</td>'
+					+ '<td>Key</td>'
+					+ '</tr>';
+					var len = json.feed.entry.length;
+					for (var i = 0; i < len; i++) {
+						var offer = json.feed.entry[i].gsx$offer.$t;
+						var prospect = json.feed.entry[i].gsx$prospect.$t;
+						var email = json.feed.entry[i].gsx$email.$t;
+						var expires = json.feed.entry[i].gsx$expires.$t;
+						var key = json.feed.entry[i].gsx$key.$t;
+						if (key == getQueryVariable('key')) {
+							string += '<tr>'
+							+ '<td>' + offer + '</td>'
+							+ '<td>' + prospect + '</td>'
+							+ '<td>' + email + '</td>'
+							+ '<td>' + expires + '</td>'
+							+ '<td>' + key + '</td>'
+							+ '</tr>';
+						}
 					}
+					string += "</table>";
+					document.write(string);
 				}
-				string += "</table>";
-				document.write(string);
 			}
 		</script>
 		<script src="https://spreadsheets.google.com/feeds/list/1xL09eouUixvHDPv4S2j4wzwTH4TIAvlrgNftnQUaSsw/od6/public/values?alt=json-in-script&amp;callback=displayForm" type="text/javascript"></script>
