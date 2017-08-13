@@ -6,7 +6,7 @@
 		<style>
 			body {margin: 50px;}
 			h1 {color: blue;}
-			td {valign: top;}
+			td {vertical-align: top;}
 		</style>
 	</head>
 	<body style="cursor: auto;">
@@ -32,11 +32,11 @@
 					+ '<form action="mailto:membership@hideawayswimclub.com" method="post" enctype="text/plain">'
 					+ '<table width="93%" cellspacing="0" cellpadding="3"><tr>'
 					//+ '<td>Offer Date</td>'
-					+ '<td>Name</td>'
-					+ '<td>Email</td>'
-					+ '<td>Are you still interested in becoming a member?</td>'
-					//+ '<td>Expires</td>'
-					//+ '<td>Key</td>'
+					+ '<th>Name</th>'
+					+ '<th>Email</th>'
+					+ '<th>Are you still interested in becoming a member?</th>'
+					//+ '<th>Expires</th>'
+					//+ '<th>Key</th>'
 					+ '</tr>';
 					var len = json.feed.entry.length;
 					for (var i = 0; i < len; i++) {
