@@ -6,10 +6,12 @@
 		<style>
 			body {margin: 50px;}
 			h1 {color: blue;}
+			th {align: left;}
 			td {vertical-align: top;}
 		</style>
 	</head>
 	<body style="cursor: auto;">
+		<form action="mailto:membership@hideawayswimclub.com" method="post" enctype="text/plain">
 		<script>
 			function getQueryVariable(variable)
 			{
@@ -29,7 +31,7 @@
 				if ("" != getQueryVariable('key')) {
 					var string = '<h1>Hideaway Swim Club - Membership Available</h1>'
 					+ '<h2>A membership has become available and you are next on our wait list.</h2>'
-					+ '<form action="mailto:membership@hideawayswimclub.com" method="post" enctype="text/plain">'
+					+ ''
 					+ '<table width="93%" cellspacing="0" cellpadding="3"><tr>'
 					//+ '<td>Offer Date</td>'
 					+ '<th>Name</th>'
@@ -55,28 +57,33 @@
 							+ '<td><input type="text" name="From" value="' + prospect + '"></td>'
 							+ '<td><input type="text" name="Email" value="' + email + '"></td>'
 							+ '<td>'
-								+ '<input type="radio" name="Interested" value="Yes" checked>Yes, I want to join as soon as possible.<br>'
+								+ '<input type="radio" name="Interested" value="Yes">Yes, I want to join as soon as possible.<br>'
 								+ '<input type="radio" name="Interested" value="No">No, please take me off the wait list.<br>'
 								+ '<input type="radio" name="Interested" value="Later">Not for this season, but please keep me on the wait list for next season.<br>'
 								+ '<input type="radio" name="Interested" value="Maybe">Not at this time, but please keep me on the wait list.<br>'
 							+ '</td>'
-							+ '</tr>';
-							string += '<tr>'
+							+ '</tr>'
+							+ '<tr>'
 							+ '<td colspan="3">'
 							+ '<input type="submit" name="submit" value="Submit">'
 							+ '</td>'
 							+ '</tr>';
 						} else {
-							document.write("The link address is not active.  The offer has expired or the address is invalid.");
+							string = '<table>'
+							+ '<tr><td>'
+							+ '<h1>Hideaway Swim Club</h1>'
+							+ '<h2>The link address is not active.  The offer has expired or the address is invalid.</h2>'
+							+ '</td></tr>';
 						}
 					}
-					string += "</table></form>";
+					string += "</table>";
 					document.write(string);
 				} else {
-					document.write("Please verify your link address. The address is invalid.");
+					document.write("<h2>Please verify your link address. The address is invalid.</h2>");
 				}
 			}
 		</script>
 		<script src="https://spreadsheets.google.com/feeds/list/1xL09eouUixvHDPv4S2j4wzwTH4TIAvlrgNftnQUaSsw/od6/public/values?alt=json-in-script&amp;callback=displayForm" type="text/javascript"></script>
+		</form>
 	</body>
 </html>
